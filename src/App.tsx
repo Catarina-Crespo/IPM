@@ -45,6 +45,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './styles/variables.css';
+import FindAccomodation from './pages/FindAccomodation';
 
 setupIonicReact();
 
@@ -56,6 +57,9 @@ const App: React.FC = () => (
           <Route exact path="/login">
             <Login />
           </Route>
+          <Route exact path="/findAccomodation">
+            <FindAccomodation />
+          </Route>
           <Route exact path="/tab1">
             <Tab1 />
           </Route>
@@ -66,7 +70,7 @@ const App: React.FC = () => (
             <Tab3 />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/login" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">

@@ -8,6 +8,10 @@ const Login: React.FC = () => {
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string>('');
     const history = useHistory();  // useHistory hook for navigation
+
+    const handleRegister = () => {
+      alert('Not implemented')
+    }
   
     const handleLogin = () => {
       setError('');
@@ -28,9 +32,8 @@ const Login: React.FC = () => {
           </IonToolbar>
         </IonHeader>
   
-        <IonContent className="ion-padding login-content">
+        <IonContent>
           <div className="login-container">
-            {/* Company Logo */}
             <IonImg src="/assets/IPM_Logo.png" alt="Loading Image" className="login-logo" />
   
             <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
@@ -64,7 +67,7 @@ const Login: React.FC = () => {
                 Login
               </IonButton>
   
-              <IonButton expand="block" fill="clear" routerLink="/register">
+              <IonButton expand="block" fill="clear" onClick={handleRegister}>
                 Don't have an account? Register
               </IonButton>
             </form>
