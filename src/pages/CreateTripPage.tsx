@@ -1,7 +1,6 @@
 import {
   IonButton,
   IonContent,
-  IonDatetime,
   IonHeader,
   IonIcon,
   IonInput,
@@ -21,6 +20,10 @@ import "../styles/CreateTrip.css";
 import CountryCitySelect from "../components/CountryCitySelect";
 import { useEffect, useState } from "react";
 import Select from "react-select";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 const CreateTripPage: React.FC = () => {
   // State for each input field value
@@ -31,6 +34,8 @@ const CreateTripPage: React.FC = () => {
   const [dailyBudget, setDailyBudget] = useState<number>(0);
   const [totalBudget, setTotalBudget] = useState<number>(0);
   const [selectedBudgetOption, setBudgetSelect] = useState<any | null>(null);
+
+  const [startDate, setStartDate] = useState(new Date());
 
   const budgetOptions = [
     { value: "daily", label: "Daily" },
@@ -96,7 +101,27 @@ const CreateTripPage: React.FC = () => {
 
           <CountryCitySelect />
 
-          {/* TODO: Start and End date */}
+          <div style={{marginBottom:'10px'}}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["DateTimePicker"]}>
+                <DateTimePicker
+                  label="Trip Start Date"
+                  views={["day", "month", "year"]}
+                  format="DD/MM/YYYY"
+                  openTo="day"
+                />
+              </DemoContainer>
+            </LocalizationProvider>
+          </div>
+
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={["DateTimePicker"]}>
+              <DateTimePicker
+                label="Trip End Date"
+                views={["day", "month", "year"]}
+              />
+            </DemoContainer>
+          </LocalizationProvider>
 
           {/* ----------------- Budget Information Section ----------------- */}
           <h2 className="section_title" style={{ marginTop: "50px" }}>

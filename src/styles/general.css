@@ -52,6 +52,7 @@ input[type=number]::-webkit-outer-spin-button {
 /* ---------- Styles to artifically add a floating label on React select ---------- */
 .select_container {
     position: relative;
+    margin-bottom: 10px;
 }
 
 .select_label {
