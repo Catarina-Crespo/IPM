@@ -7,12 +7,6 @@
   padding: 16px; /* Optional: add padding for spacing */
 }
 
-.login-container {
-  width: 100%;
-  max-width: 400px;
-  /* text-align: center;  Center elements inside the container */
-}
-
 .login-logo {
   width: 40vw; /* 40% of the viewport width */
   max-width: 150px; /* Maximum width to prevent it from getting too large */
