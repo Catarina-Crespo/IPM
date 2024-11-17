@@ -35,8 +35,6 @@ const CreateTripPage: React.FC = () => {
   const [totalBudget, setTotalBudget] = useState<number>(0);
   const [selectedBudgetOption, setBudgetSelect] = useState<any | null>(null);
 
-  const [startDate, setStartDate] = useState(new Date());
-
   const budgetOptions = [
     { value: "daily", label: "Daily" },
     { value: "total", label: "Total" },
@@ -101,7 +99,7 @@ const CreateTripPage: React.FC = () => {
 
           <CountryCitySelect />
 
-          <div style={{marginBottom:'10px'}}>
+          <div style={{ marginBottom: "10px" }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DateTimePicker"]}>
                 <DateTimePicker
@@ -119,6 +117,8 @@ const CreateTripPage: React.FC = () => {
               <DateTimePicker
                 label="Trip End Date"
                 views={["day", "month", "year"]}
+                  format="DD/MM/YYYY"
+                  openTo="day"
               />
             </DemoContainer>
           </LocalizationProvider>
