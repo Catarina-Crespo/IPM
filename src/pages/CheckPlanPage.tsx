@@ -38,7 +38,15 @@ import { Icon } from "@iconify/react";
 
 import image from "../img/sunny.jpg";
 
+import RegeneratePlan from "../components/RegeneratePlan";
+
 const CheckPlanPage: React.FC = () => {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <IonPage>
       <IonHeader>
@@ -171,8 +179,10 @@ const CheckPlanPage: React.FC = () => {
           </TimelineItem>
         </Timeline>
 
+        <RegeneratePlan open={open} onClose={handleClose} />
+
         <IonFab slot="fixed" vertical="bottom" horizontal="end">
-          <IonFabButton>
+          <IonFabButton onClick={handleOpen}>
             <IonIcon icon={settings}></IonIcon>
           </IonFabButton>
         </IonFab>
