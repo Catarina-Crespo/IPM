@@ -52,7 +52,7 @@ const Filters: React.FC<FiltersProps> = ({ open, onClose }) => {
         <IonRange
           aria-label="Dual Knobs Range"
           dualKnobs={true}
-          max={200}
+          max={100}
           value={{
             lower: 0,
             upper: 10,
