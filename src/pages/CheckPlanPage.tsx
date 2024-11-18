@@ -39,6 +39,7 @@ import { Icon } from "@iconify/react";
 import image from "../img/sunny.jpg";
 
 import RegeneratePlan from "../components/RegeneratePlan";
+import Filters from "../components/Filters";
 
 const CheckPlanPage: React.FC = () => {
 
@@ -179,7 +180,7 @@ const CheckPlanPage: React.FC = () => {
           </TimelineItem>
         </Timeline>
 
-        <RegeneratePlan open={open} onClose={handleClose} />
+        <Filters open={open} onClose={handleClose} />
 
         <IonFab slot="fixed" vertical="bottom" horizontal="end">
           <IonFabButton onClick={handleOpen}>
