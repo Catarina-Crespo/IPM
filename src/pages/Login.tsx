@@ -42,11 +42,6 @@ const Login: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader class="ion-no-border">
-        <IonToolbar>
-          <IonTitle>Login</IonTitle>
-        </IonToolbar>
-      </IonHeader>
 
       <IonContent>
         <div className="login-container">
@@ -62,25 +57,28 @@ const Login: React.FC = () => {
               handleLogin();
             }}
           >
-            <IonItem>
-              <IonLabel position="stacked">Email</IonLabel>
-              <IonInput
-                type="email"
-                value={email}
-                onIonChange={(e) => setEmail(e.detail.value!)}
-                required
-              />
-            </IonItem>
+            <IonInput
+              label="Email"
+              labelPlacement="floating"
+              fill="outline"
+              clearInput={true}
+              value={email}
+              className="mod_input"
+              onIonChange={(e) => setEmail(e.detail.value!)}
+              required
+            ></IonInput>
 
-            <IonItem>
-              <IonLabel position="stacked">Password</IonLabel>
-              <IonInput
-                type="password"
+            <IonInput
+                label="Password"
+                labelPlacement="floating"
+                fill="outline"
+                clearInput={true}
                 value={password}
+                className="mod_input"
                 onIonChange={(e) => setPassword(e.detail.value!)}
+                type="password"
                 required
-              />
-            </IonItem>
+            ></IonInput>
 
             {error && (
               <IonText color="danger">
