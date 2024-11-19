@@ -1,0 +1,46 @@
+
+ button.alert-button.alert-button-confirm {
+    color: green;
+  }
+
+  
+  
+ button.alert-button.alert-button-cancel {
+    color: red;
+  }
+
+
+  .interests-list {
+    padding: 20px;
+  }
+  
+  .save-button {
+    margin: 20px;
+    --background: #3880ff;
+    --color: #ffffff;
+  }
+  
+  .question-text {
+    font-weight: bold;
+    padding: 5px 0px;
+  }
+
+  .scrollable-row {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+  }
+
+
+  .horizontal-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+  }
+
+
+  
