@@ -1,0 +1,105 @@
+/* Style for the event card */
+.event-card {
+    margin-bottom: 8px;
+  }
+  
+  .event-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Stretch to fit parent height */
+  }
+  
+  .add-button {
+    align-self: center; /* Center the button horizontally */
+    margin-top: auto; /* Push it to the bottom */
+  }
+  /* Styling for each event detail */
+  .event-detail {
+    margin: 0;
+    font-size: 0.9em;
+  }
+
+  /* Horizontal scroll container for each section */
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  
+  .scroll-container .event-card {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 300px; /* Ensure all cards have the same height */
+    margin-right: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute content evenly */
+    padding: 16px; /* Add padding inside the card */
+  }
+  
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between input and button */
+  }
+  
+  .country-input {
+    flex: 1; /* Make the input take available space */
+  }
+  
+  .search-button {
+    flex-shrink: 0; /* Prevent the button from resizing */
+  }
+
+  .event-card h2 {
+    font-size: 1.2rem; /* Adjust the font size */
+    font-weight: bold; /* Make the title stand out */
+    margin: 0 0 10px 0; /* Add some spacing below the title */
+    text-align: left; /* Align the text to the left */
+  }
+  
+  .event-card:hover h2 {
+    color: #0078ff; /* Change color on hover for interactivity */
+    transition: color 0.3s ease; /* Smooth transition effect */
+  }
+
+  .event-header {
+    display: flex;
+    align-items: flex-start; /* Align title to the top */
+    margin-bottom: 10px; /* Add spacing below the header */
+  }
+  
+  .event-details {
+    flex: 1; /* Allow details to grow and fill available space */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .event-header h2 {
+    flex: 1; /* Let the title take available space */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .add-button:hover {
+    background-color: #005bb5; /* Darker blue on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+
+  .title-divider {
+    border: none;
+    height: 1px;
+    background-color: #ccc; /* Divider color */
+    margin: 8px 0; /* Adjust spacing around the divider */
+  }
+  
+  
+  
+
+  
+  
+  

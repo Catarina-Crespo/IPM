@@ -10,10 +10,11 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/CheckPlanPage';
+import { earthOutline, ellipse, square, triangle } from 'ionicons/icons';
+import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
+import Login from './pages/Login';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,6 +45,8 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './styles/variables.css';
+import FindAccomodation from './pages/FindAccomodation';
+import Discover from './pages/Discover';
 import './styles/general.css';
 
 setupIonicReact();
@@ -53,6 +56,15 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/findAccomodation">
+            <FindAccomodation />
+          </Route>
+          <Route exact path="/discover">
+            <Discover />
+          </Route>
           <Route exact path="/tab1">
             <Tab1 />
           </Route>
@@ -63,13 +75,13 @@ const App: React.FC = () => (
             <Tab3 />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/discover" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+          <IonTabButton tab="tab1" href="/discover">
+            <IonIcon aria-hidden="true" icon={earthOutline} />
+            <IonLabel>Discover</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon aria-hidden="true" icon={ellipse} />
