@@ -1,0 +1,149 @@
+[
+  {
+    "name": "Visit Colosseum",
+    "duration": "2h",
+    "location": "Colosseum",
+    "date": "7 Sept",
+    "type": ["outdoors", "monument", "culture"]
+  },
+  {
+    "name": "Eat Icecream",
+    "duration": "1h",
+    "location": "Gelateria La Romana",
+    "date": "8 Sept",
+    "type": ["outdoors", "food", "snack"]
+  },
+  {
+    "name": "Explore Vatican Museums",
+    "duration": "3h",
+    "location": "Vatican City",
+    "date": "8 Sept",
+    "type": ["indoor", "museum", "culture"]
+  },
+  {
+    "name": "Lunch at Trattoria",
+    "duration": "1.5h",
+    "location": "Trattoria Da Enzo",
+    "date": "8 Sept",
+    "type": ["food", "lunch", "Italian"]
+  },
+  {
+    "name": "Morning Bike Ride",
+    "duration": "1.5h",
+    "location": "Villa Borghese",
+    "date": "9 Sept",
+    "type": ["outdoors", "sport"]
+  },
+  {
+    "name": "Visit Galleria Borghese",
+    "duration": "2h",
+    "location": "Galleria Borghese",
+    "date": "9 Sept",
+    "type": ["indoor", "art", "culture"]
+  },
+  {
+    "name": "Lunch at Pizzeria",
+    "duration": "1.5h",
+    "location": "Pizzeria La Montecarlo",
+    "date": "9 Sept",
+    "type": ["food", "lunch", "Italian"]
+  },
+  {
+    "name": "Tennis Match",
+    "duration": "1.5h",
+    "location": "Rome Tennis Club",
+    "date": "10 Sept",
+    "type": ["sport"]
+  },
+  {
+    "name": "Visit Pantheon",
+    "duration": "1h",
+    "location": "Pantheon",
+    "date": "10 Sept",
+    "type": ["outdoors", "monument", "culture"]
+  },
+  {
+    "name": "Lunch at Osteria",
+    "duration": "1.5h",
+    "location": "Osteria delle Coppelle",
+    "date": "10 Sept",
+    "type": ["food", "lunch", "Italian"]
+  },
+  {
+    "name": "Explore Campo de' Fiori Market",
+    "duration": "1.5h",
+    "location": "Campo de' Fiori",
+    "date": "11 Sept",
+    "type": ["outdoors", "market", "culture"]
+  },
+  {
+    "name": "Coffee Break",
+    "duration": "30min",
+    "location": "Sant'Eustachio Il Caffè",
+    "date": "11 Sept",
+    "type": ["food", "snack", "drink"]
+  },
+  {
+    "name": "Cooking Class: Pasta Making",
+    "duration": "2.5h",
+    "location": "Cooking School Rome",
+    "date": "11 Sept",
+    "type": ["indoor", "food", "activity"]
+  },
+  {
+    "name": "Visit Castel Sant'Angelo",
+    "duration": "2h",
+    "location": "Castel Sant'Angelo",
+    "date": "12 Sept",
+    "type": ["outdoors", "monument", "culture"]
+  },
+  {
+    "name": "Lunch at Supplì Restaurant",
+    "duration": "1h",
+    "location": "Supplì Roma",
+    "date": "12 Sept",
+    "type": ["food", "lunch", "snack"]
+  },
+  {
+    "name": "Evening Stroll in Trastevere",
+    "duration": "2h",
+    "location": "Trastevere",
+    "date": "12 Sept",
+    "type": ["outdoors", "culture"]
+  },
+  {
+    "name": "Dinner at La Pergola",
+    "duration": "2.5h",
+    "location": "La Pergola Restaurant",
+    "date": "12 Sept",
+    "type": ["food", "dinner", "luxury"]
+  },
+  {
+    "name": "Morning Jog at Circo Massimo",
+    "duration": "1h",
+    "location": "Circo Massimo",
+    "date": "13 Sept",
+    "type": ["outdoors", "sport"]
+  },
+  {
+    "name": "Visit Roman Forum",
+    "duration": "2h",
+    "location": "Roman Forum",
+    "date": "13 Sept",
+    "type": ["outdoors", "monument", "culture"]
+  },
+  {
+    "name": "Lunch at Mercato Centrale",
+    "duration": "1.5h",
+    "location": "Mercato Centrale Roma",
+    "date": "13 Sept",
+    "type": ["food", "lunch", "market"]
+  },
+  {
+    "name": "Gelato Tasting Tour",
+    "duration": "1.5h",
+    "location": "Various Gelaterias",
+    "date": "13 Sept",
+    "type": ["outdoors", "food", "snack"]
+  }
+]

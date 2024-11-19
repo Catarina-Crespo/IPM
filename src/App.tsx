@@ -10,12 +10,13 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { earthOutline, ellipse, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import Profile from './pages/Profile'; 
 import Prices from './pages/Prices'; 
+import Login from './pages/Login';
 
 
 import '@ionic/react/css/core.css';
@@ -30,6 +31,9 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 import './styles/variables.css';
+import FindAccomodation from './pages/FindAccomodation';
+import Discover from './pages/Discover';
+import './styles/general.css';
 
 setupIonicReact();
 
@@ -38,6 +42,15 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/findAccomodation">
+            <FindAccomodation />
+          </Route>
+          <Route exact path="/discover">
+            <Discover />
+          </Route>
           <Route exact path="/tab1">
             <Tab1 />
           </Route>
@@ -54,13 +67,13 @@ const App: React.FC = () => (
             <Prices /> {/* Route for Prices page */}
           </Route>
           <Route exact path="/">
-            <Redirect to="/prices" /> {/* Redirect to Prices page */}
+            <Redirect to="/discover" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+          <IonTabButton tab="tab1" href="/discover">
+            <IonIcon aria-hidden="true" icon={earthOutline} />
+            <IonLabel>Discover</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon aria-hidden="true" icon={ellipse} />
