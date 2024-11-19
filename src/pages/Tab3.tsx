@@ -49,7 +49,7 @@ const Tab3: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader class="ion-no-border">
         <IonToolbar>
           <IonTitle>Homepage</IonTitle>
         </IonToolbar>

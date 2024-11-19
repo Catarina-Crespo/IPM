@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader class="ion-no-border">
         <IonToolbar>
           <IonTitle>Profile</IonTitle>
         </IonToolbar>
@@ -29,24 +29,24 @@ const Profile: React.FC = () => {
           <p>Bio or description goes here...</p>
         </div>
         
-        <IonList>
-          <IonItem>
+        <IonList className='profile_list'>
+          <IonItem className='profile_item'>
             <IonIcon icon={mailOutline} slot="start" />
             <IonLabel>Email</IonLabel>
             <IonLabel slot="end">user@example.com</IonLabel>
           </IonItem>
-          <IonItem>
+          <IonItem className='profile_item'>
             <IonIcon icon={locationOutline} slot="start" />
             <IonLabel>Location</IonLabel>
             <IonLabel slot="end">City, Country</IonLabel>
           </IonItem>
         </IonList>
         
-        <IonButton expand="block" color="primary">
+        <IonButton expand="block" color="primary" className='primBtn'>
           Edit Profile
         </IonButton>
         
-        <IonButton expand="block" color="danger" onClick={handleLogout}>
+        <IonButton expand="block" color="danger" onClick={handleLogout} className='dangerBtn'>
           Log Out
         </IonButton>
         

@@ -12,7 +12,7 @@ const Prices: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader class="ion-no-border">
         <IonToolbar>
           <IonTitle>Prices</IonTitle>
         </IonToolbar>

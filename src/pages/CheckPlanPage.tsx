@@ -83,7 +83,7 @@ const CheckPlanPage: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader class="ion-no-border">
         <IonToolbar>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <IonTitle>Plan Details </IonTitle>

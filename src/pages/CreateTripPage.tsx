@@ -59,7 +59,7 @@ const CreateTripPage: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader class="ion-no-border">
         <IonToolbar>
           {/* ----------------- Discard button ----------------- */}
           <div

@@ -17,6 +17,8 @@ import Tab3 from './pages/Tab3';
 import Profile from './pages/Profile'; 
 import Prices from './pages/Prices'; 
 import Login from './pages/Login';
+import CheckPlan from './pages/CheckPlanPage';
+import CreateTrip from './pages/CreateTripPage';
 
 
 import '@ionic/react/css/core.css';
@@ -51,6 +53,12 @@ const App: React.FC = () => (
           <Route exact path="/discover">
             <Discover />
           </Route>
+          <Route exact path="/createtrip">
+            <CreateTrip />
+          </Route>
+          <Route exact path="/checkplan">
+            <CheckPlan />
+          </Route>
           <Route exact path="/tab1">
             <Tab1 />
           </Route>
@@ -64,7 +72,7 @@ const App: React.FC = () => (
             <Prices /> {/* Route for Prices page */}
           </Route>
           <Route exact path="/">
-            <Redirect to="/discover" />
+            <Redirect to="/login" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">

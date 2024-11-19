@@ -22,7 +22,7 @@ const FindAccomodation: React.FC = () => {
 
     return (
         <IonPage>
-          <IonHeader>
+          <IonHeader class="ion-no-border">
             <IonToolbar>
               <IonTitle>Find Accommodation</IonTitle>
             </IonToolbar>

@@ -74,7 +74,7 @@ const Tab1: React.FC = () => {
   
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader class="ion-no-border">
         <IonToolbar>
           <IonTitle>Travel Plan</IonTitle>
         </IonToolbar>

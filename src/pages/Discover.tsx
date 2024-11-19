@@ -92,7 +92,7 @@ const Discovery = () => {
 
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader class="ion-no-border">
         <IonToolbar>
           <IonTitle>Discover</IonTitle>
         </IonToolbar>
