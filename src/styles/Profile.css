@@ -1,0 +1,87 @@
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 3px solid #fff;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-header h2 {
+  margin: 12px 0 6px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.profile-header p {
+  margin: 0;
+  font-size: 1rem;
+  color: #d1d1d1;
+  text-align: center;
+}
+
+ion-list {
+  margin-top: 25px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ion-item {
+  --border-color: transparent;
+  padding: 15px 10px;
+  color: #333;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+ion-item ion-label {
+  font-weight: bold;
+  color: #555;
+}
+
+ion-item:hover {
+  background-color: #f1f1f1;
+}
+
+ion-button {
+  margin: 25px 20px 0;
+  border-radius: 20px;
+  font-weight: bold;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+ion-button:hover {
+  background-color: #3b79ff;
+  transform: scale(1.05);
+}
+
+ion-button[color="danger"] {
+  background-color: #ff4e42;
+}
+
+ion-button[color="danger"]:hover {
+  background-color: #ff3b30;
+}
