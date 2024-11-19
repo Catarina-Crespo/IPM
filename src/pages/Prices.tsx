@@ -29,7 +29,7 @@ const Prices: React.FC = () => {
             <IonRow>
               <IonCol size="6">
                 <IonCard button onClick={() => handleCategoryChange('Food')}>
-                  <img src="src/styles/restaurant.jpg" alt="Food" className="hover-image" />
+                  <img src="src/img/restaurant.jpg" alt="Food" className="hover-image" />
                   <IonCardHeader>
                     <IonCardTitle>Food</IonCardTitle>
                   </IonCardHeader>
@@ -37,7 +37,7 @@ const Prices: React.FC = () => {
               </IonCol>
               <IonCol size="6">
                 <IonCard button onClick={() => handleCategoryChange('Transport')}>
-                  <img src="src/styles/train.jpeg" alt="Transport" className="hover-image" />
+                  <img src="src/img/train.jpeg" alt="Transport" className="hover-image" />
                   <IonCardHeader>
                     <IonCardTitle>Transport</IonCardTitle>
                   </IonCardHeader>
@@ -47,7 +47,7 @@ const Prices: React.FC = () => {
             <IonRow>
               <IonCol size="6">
                 <IonCard button onClick={() => handleCategoryChange('Attractions')}>
-                  <img src="src/styles/museum.jpg" alt="Attractions" className="hover-image" />
+                  <img src="src/img/museum.jpg" alt="Attractions" className="hover-image" />
                   <IonCardHeader>
                     <IonCardTitle>Attractions</IonCardTitle>
                   </IonCardHeader>
@@ -55,7 +55,7 @@ const Prices: React.FC = () => {
               </IonCol>
               <IonCol size="6">
                 <IonCard button onClick={() => handleCategoryChange('Supermarket')}>
-                  <img src="src/styles/supermarket.jpg" alt="Supermarket" className="hover-image" />
+                  <img src="src/img/supermarket.jpg" alt="Supermarket" className="hover-image" />
                   <IonCardHeader>
                     <IonCardTitle>Supermarket</IonCardTitle>
                   </IonCardHeader>

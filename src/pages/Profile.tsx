@@ -23,7 +23,7 @@ const Profile: React.FC = () => {
         
         <div className="profile-header">
           <IonAvatar className="profile-avatar">
-            <img src="src/styles/Profile-PNG-File.png" alt="Profile" />
+            <img src="src/img/Profile-PNG-File.png" alt="Profile" />
           </IonAvatar>
           <h2>Username</h2>
           <p>Bio or description goes here...</p>
