@@ -47,6 +47,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 import './styles/variables.css';
 import FindAccomodation from './pages/FindAccomodation';
 import Discover from './pages/Discover';
+import './styles/general.css';
 
 setupIonicReact();
 

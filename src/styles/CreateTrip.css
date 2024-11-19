@@ -1,0 +1,37 @@
+.form_container {
+    padding: 20px;
+}
+
+
+/* ------------------- Section Title ------------------- */
+.section_title {
+    width: 100%;
+    border-bottom: 3px solid var(--ion-color-dark);
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    color: var(--ion-color-dark);
+    margin-bottom: 30px;
+}
+
+.section_title .section_title_icon {
+    padding-right: 7px;
+}
+
+
+/* ------------------- Autosum -------------------*/
+.auto_sum_container {
+    margin: 10px 0;
+}
+
+.auto_sum_container span {
+    margin: 7px 12px;
+}
+
+.auto_sum_title {
+    font-style: italic;
+}
+
+.auto_sum_value {
+    font-weight: bold;
+}

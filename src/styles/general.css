@@ -1,0 +1,66 @@
+/* ------------------- Ionic Inputs ------------------- */
+ion-input.mod_input {
+    --padding-end: 10px;
+    --padding-start: 10px;
+    margin-bottom: 20px;
+    --color: var(--ion-color-dark);
+}
+
+/* Remove arrows in numeric input fields */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/* ------------------- React Selects ------------------- */
+.custom_select {
+    background-color: none;
+    margin-bottom: 20px;
+    z-index: 3;
+}
+
+/* ----- Default select ----- */
+.css-13cymwt-control {
+    background-color: transparent !important;
+    padding: 10px 12px;
+}
+
+/* ----- Focused select ----- */
+.css-t3ipsp-control {
+    background-color: transparent !important;
+    padding: 10px 12px;
+}
+
+/* ----- Disabled select ----- */
+.css-16xfy0z-control {
+    padding: 10px 12px;
+}
+
+/* ----- Select's placeholder ----- */
+.css-hlgwow {
+    padding: 0 !important;
+}
+
+/* ----- Select's separator ----- */
+.css-1u9des2-indicatorSeparator {
+    display: none;
+}
+
+/* ---------- Styles to artifically add a floating label on React select ---------- */
+.select_container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.select_label {
+    position: absolute;
+    top: -7px;
+    left: 12px;
+    background-color: white;
+    z-index: 4;
+    padding: 0 4px;
+    font-size: small;
+}
