@@ -36,6 +36,7 @@ import image from "../img/sunny.jpg";
 import RegeneratePlan from "../components/RegeneratePlan";
 
 import eventsData from '../data/events.json';
+import { useHistory } from "react-router-dom";
 
 // Helper function to convert duration string like "2h", "30min" into minutes
 const convertDurationToMinutes = (duration: string) => {
@@ -61,6 +62,10 @@ const formatTime = (minutes: number) => {
 };
 
 const CheckPlanPage: React.FC = () => {
+
+  const history = useHistory(); // useHistory hook for navigation
+
+
   const [selectedDate, setSelectedDate] = React.useState<string>('');
   const [filteredEvents, setFilteredEvents] = React.useState<any[]>([]);
 
@@ -87,7 +92,7 @@ const CheckPlanPage: React.FC = () => {
         <IonToolbar>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <IonTitle>Plan Details </IonTitle>
-            <IonButton fill="clear">
+            <IonButton fill="clear" onClick={() => history.push("\homepage")}>
               <IonIcon icon={close} size="large"></IonIcon>
             </IonButton>
           </div>

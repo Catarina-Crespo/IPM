@@ -1,8 +1,10 @@
 import { IonAccordion, IonAccordionGroup, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCheckbox, IonCol, IonContent, IonFab, IonFabButton, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import '../styles/Tab3.css';
-import { add,bookmarksOutline,thumbsUpOutline, happyOutline } from 'ionicons/icons';
+import { add,bookmarksOutline,thumbsUpOutline, happyOutline, push } from 'ionicons/icons';
 import { useEffect, useRef, useState } from 'react';
+import { useHistory } from "react-router-dom"; // Import useHistory for navigation
+
 
 const recommendations_plans = [
   {
@@ -42,10 +44,13 @@ const recommendations_plans = [
 ];
 
   
-const Tab3: React.FC = () => {
+const Homepage: React.FC = () => {
   function handleCardClick(arg0: string) {
     throw new Error('Function not implemented.');
   }
+
+  const history = useHistory(); // useHistory hook for navigation
+
 
   return (
     <IonPage>
@@ -162,7 +167,7 @@ const Tab3: React.FC = () => {
 
 
       <IonFab className="custom-button" vertical="bottom" horizontal="end" slot="fixed" >
-          <IonFabButton>
+          <IonFabButton onClick={() => history.push("/createtrip")}>
             <IonIcon icon={add} />
           </IonFabButton>
         </IonFab>
@@ -175,4 +180,4 @@ const Tab3: React.FC = () => {
 };
 
 
-export default Tab3;
+export default Homepage;

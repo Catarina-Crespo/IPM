@@ -23,12 +23,12 @@ const Login: React.FC = () => {
 
   const handleRegister = () => {
     alert("Not implemented");
-    history.push("/tab2");
+    history.push("/homepage");
   };
 
   const handleLogin = () => {
     // If login is successful, redirect to /discover
-    history.push("/tab2");
+    history.push("/homepage");
 
     setError("");
     if (!email || !password) {

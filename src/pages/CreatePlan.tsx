@@ -23,6 +23,9 @@ import {
 } from '@ionic/react';
 import { filterCircleOutline } from 'ionicons/icons';
 import '../styles/Tab1.css';
+import { useHistory } from 'react-router-dom';
+import Filters from '../components/Filters';
+import React from 'react';
 
 
 const recommendations_plans = [
@@ -56,7 +59,14 @@ const recommendations_plans = [
   },
 ];
 
-const Tab1: React.FC = () => {
+const CreatePlan: React.FC = () => {
+
+  const history = useHistory(); // useHistory hook for navigation
+  
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const [SelectedOptionVisitor, setSelectedOptionVisitor] = useState<string | null>(null);
   const [SelectedOptionSchedule, setSelectedOptionScheduler] = useState<string | null>(null);
 
@@ -98,7 +108,12 @@ const Tab1: React.FC = () => {
             buttons={[
               {
                 text: 'Yes',
-                cssClass: 'alert-button-confirm'
+                cssClass: 'alert-button-confirm',
+                handler: () => {
+                  // Action to perform when "Yes" is clicked
+                  console.log('You clicked Yes');
+                  history.push("/checkplan");
+                }
               },
               {
                 text: 'Cancel',
@@ -181,12 +196,13 @@ const Tab1: React.FC = () => {
       <IonItem> <IonLabel className='question-text'>Don't want to miss</IonLabel>        </IonItem>
 
 
+      <Filters open={open} onClose={handleClose} />
 
 
       <IonToolbar>
           <div style={{ display: 'flex',  padding:"20px 10px"}}>
           <IonSearchbar animated={true} placeholder="Search Attraction.."></IonSearchbar>
-          <IonButton size="small">
+          <IonButton size="small" onClick={handleOpen}>
             <IonIcon 
               icon={filterCircleOutline}
               style={{ fontSize: '30px' }}
@@ -280,7 +296,7 @@ const Tab1: React.FC = () => {
         <IonButton
           expand="block"
           className="save-button"
-          onClick={() => console.log('Selected Interests:', interests)}
+          onClick={() => history.push("/checkplan")}
         >
           Save Preferences
         </IonButton>
@@ -289,4 +305,4 @@ const Tab1: React.FC = () => {
   );
 };
 
-export default Tab1;
+export default CreatePlan;

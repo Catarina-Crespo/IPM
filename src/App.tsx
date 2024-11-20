@@ -11,9 +11,9 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { earthOutline, ellipse, home, personCircleOutline, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
+import CreatePlan from './pages/CreatePlan';
 import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import Homepage from './pages/Homepage';
 import Profile from './pages/Profile'; 
 import Prices from './pages/Prices'; 
 import Login from './pages/Login';
@@ -47,7 +47,7 @@ const App: React.FC = () => (
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/findAccomodation">
+          <Route exact path="/findaccomodation">
             <FindAccomodation />
           </Route>
           <Route exact path="/discover">
@@ -59,13 +59,13 @@ const App: React.FC = () => (
           <Route exact path="/checkplan">
             <CheckPlan />
           </Route>
-          <Route exact path="/tab1">
-            <Tab1 />
+          <Route exact path="/createplan">
+            <CreatePlan />
           </Route>
-          <Route exact path="/tab2">
-            <Tab3 />
+          <Route exact path="/homepage">
+            <Homepage />
           </Route>
-          <Route exact path="/tab3">
+          <Route exact path="/profile">
             <Profile />
           </Route>
           <Route exact path="/prices">
@@ -80,11 +80,11 @@ const App: React.FC = () => (
             <IonIcon aria-hidden="true" icon={earthOutline} />
             <IonLabel>Discover</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
+          <IonTabButton tab="tab2" href="/homepage">
             <IonIcon aria-hidden="true" icon={home} />
             <IonLabel>Homepage</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
+          <IonTabButton tab="tab3" href="/profile">
             <IonIcon aria-hidden="true" icon={personCircleOutline} />
             <IonLabel>Profile</IonLabel>
           </IonTabButton>

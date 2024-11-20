@@ -24,8 +24,13 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { useHistory } from "react-router-dom";
+
 
 const CreateTripPage: React.FC = () => {
+
+  const history = useHistory(); // useHistory hook for navigation
+
   // State for each input field value
   const [food, setFood] = useState<number>(0);
   const [accommodation, setAccommodation] = useState<number>(0);
@@ -70,7 +75,7 @@ const CreateTripPage: React.FC = () => {
               justifyContent: "end",
             }}
           >
-            <IonButton fill="clear" size="default" color="danger">
+            <IonButton fill="clear" size="default" color="danger" onClick={() => history.push("/homepage")}>
               <IonIcon slot="start" icon={closeOutline}></IonIcon>Discard Trip
             </IonButton>
           </div>
@@ -229,7 +234,7 @@ const CreateTripPage: React.FC = () => {
               marginBottom: "15px",
             }}
           >
-            <IonButton fill="outline">
+            <IonButton fill="outline" onClick={() => {history.push("/findaccomodation")}}>
               <IonIcon slot="start" icon={search}></IonIcon>
               Search Accomodation
             </IonButton>
@@ -254,7 +259,7 @@ const CreateTripPage: React.FC = () => {
               marginTop: "50px",
             }}
           >
-            <IonButton style={{ marginTop: "20px" }}>
+            <IonButton style={{ marginTop: "20px" }} onClick={() => {history.push("/createplan")}}>
               Next
               <IonIcon slot="end" icon={chevronForward}></IonIcon>
             </IonButton>
