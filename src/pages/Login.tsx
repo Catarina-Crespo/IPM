@@ -22,7 +22,6 @@ const Login: React.FC = () => {
   const history = useHistory(); // useHistory hook for navigation
 
   const handleRegister = () => {
-    alert("Not implemented");
     history.push("/homepage");
   };
 

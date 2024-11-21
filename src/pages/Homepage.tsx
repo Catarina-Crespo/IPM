@@ -18,7 +18,7 @@ const recommendations_plans = [
     id: 2,
     name: 'Sydney',
     duration: '4 days',
-    image: 'https://www.passagenspromo.com.br/blog/wp-content/uploads/2023/11/Design-sem-nome-2023-11-27T212503.248-740x415.jpg',
+    image: 'https://businessevents.australia.com/content/businessevents/en/destinations/sydney/_jcr_content/hero/desktop.adapt.1920.high.jpg',
   },
   {
     id: 3,
