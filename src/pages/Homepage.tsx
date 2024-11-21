@@ -171,9 +171,6 @@ const Homepage: React.FC = () => {
             <IonIcon icon={add} />
           </IonFabButton>
         </IonFab>
-
-        <IonLabel className="custom-position-label"> NEW TRIP</IonLabel>
-
       </IonContent>
     </IonPage>
   );
