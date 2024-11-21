@@ -139,7 +139,7 @@ const Discovery = () => {
                     </IonLabel>
                     <IonButton
                         className="add-button"
-                        onClick={() => console.log(`Added event: ${event.title}`)}
+                        onClick={() => alert("Added to plan!")}
                       >
                         Add to Plan +
                     </IonButton>
@@ -176,7 +176,7 @@ const Discovery = () => {
                       </IonLabel>
                       <IonButton
                           className="add-button"
-                          onClick={() => console.log(`Added event: ${event.title}`)}
+                          onClick={() => alert("Added to plan!")}
                         >
                           Add to Plan +
                       </IonButton>
