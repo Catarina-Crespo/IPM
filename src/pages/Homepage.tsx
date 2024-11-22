@@ -45,12 +45,18 @@ const recommendations_plans = [
 
   
 const Homepage: React.FC = () => {
-  function handleCardClick(arg0: string) {
-    throw new Error('Function not implemented.');
-  }
 
   const history = useHistory(); // useHistory hook for navigation
 
+
+  function handleCardClick(arg0: string) {
+
+    if (arg0 === "Rome")
+    history.push("/checkplan");
+    throw new Error('Function not implemented.');
+  }
+
+  
 
   return (
     <IonPage>
@@ -63,7 +69,7 @@ const Homepage: React.FC = () => {
 
         <IonGrid>
           <IonRow className="ion-justify-content-center" class="current-plan-card"> 
-            <IonCol size="8">  
+            
               <IonCard button={true} onClick={() => handleCardClick('Rome')}>
                 <img alt="Silhouette of mountains" src="https://lp-cms-production.imgix.net/2022-04/Castel-SantAngelo-Rome-Italy-danny-lehman-GettyImages-522705902%20rfc.jpg?w=1500&h=640&auto=format&q=75"/>
                 <IonCardHeader>
@@ -83,7 +89,6 @@ const Homepage: React.FC = () => {
                       </IonButton>
                     </IonItem>
               </IonCard>
-            </IonCol>
           </IonRow>
         </IonGrid>
 

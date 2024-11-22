@@ -14,12 +14,7 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import "../styles/CheckPlan.css";
-import {
-  close,
-  locationSharp,
-  settings,
-  sunny,
-} from "ionicons/icons";
+import { close, locationSharp, settings, sunny, cloud, rainy } from "ionicons/icons"; // Added cloud icon
 import * as React from "react";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -32,10 +27,13 @@ import TimelineOppositeContent, {
 } from "@mui/lab/TimelineOppositeContent";
 import { Icon } from "@iconify/react";
 
-import image from "../img/sunny.jpg";
+import sunnyImg from "../img/sunny.jpg"; // Image for sunny weather
+import cloudyImg from "../img/cloudy.jpg"; // Image for cloudy weather (updated to correct path)
+import rainyImg from "../img/rainy.jpg";
+
 import RegeneratePlan from "../components/RegeneratePlan";
 
-import eventsData from '../data/events.json';
+import eventsData from "../data/events.json";
 import { useHistory } from "react-router-dom";
 
 // Helper function to convert duration string like "2h", "30min" into minutes
@@ -62,20 +60,34 @@ const formatTime = (minutes: number) => {
 };
 
 const CheckPlanPage: React.FC = () => {
-
   const history = useHistory(); // useHistory hook for navigation
 
-
-  const [selectedDate, setSelectedDate] = React.useState<string>('');
+  const [selectedDate, setSelectedDate] = React.useState<string>("");
   const [filteredEvents, setFilteredEvents] = React.useState<any[]>([]);
+  const [selectedIcon, setSelectedIcon] = React.useState<string>("");
+  const [selectedImg, setSelectedImg] = React.useState<any>(sunnyImg); // Set default to sunny image
 
   // Handle date change
   const handleDateChange = (e: any) => {
     const date = e.detail.value;
     setSelectedDate(date);
 
+    // Conditionally set the image and icon based on selected date
+    if (date === "7 Sept" || date === "8 Sept" || date === "9 Sept" || date === "11 Sept") {
+      setSelectedImg(sunnyImg); // Set sunny image
+      setSelectedIcon(sunny); // Set sunny icon
+    } else if (date === "10 Sept") {
+      setSelectedImg(rainyImg); // Set cloudy image
+      setSelectedIcon(rainy); // Set cloudy icon
+    } else {
+      setSelectedImg(cloudyImg); // Set cloudy image
+      setSelectedIcon(cloud); // Set cloudy icon
+    }
+
     // Filter events based on the selected date
-    const eventsForSelectedDate = eventsData.filter(event => event.date === date);
+    const eventsForSelectedDate = eventsData.filter(
+      (event) => event.date === date
+    );
     setFilteredEvents(eventsForSelectedDate);
   };
 
@@ -92,7 +104,7 @@ const CheckPlanPage: React.FC = () => {
         <IonToolbar>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <IonTitle>Plan Details </IonTitle>
-            <IonButton fill="clear" onClick={() => history.push("\homepage")}>
+            <IonButton fill="clear" onClick={() => history.push("homepage")}>
               <IonIcon icon={close} size="large"></IonIcon>
             </IonButton>
           </div>
@@ -101,10 +113,11 @@ const CheckPlanPage: React.FC = () => {
       <IonContent fullscreen>
         <div className="weather_div">
           <div>
-            <img src={image} />
+            {/* Show the image based on the selected date */}
+            <img src={selectedImg} alt="Weather" />
           </div>
           <h1>
-            Rome <IonIcon icon={sunny} className="title_icon"></IonIcon>
+            Rome <IonIcon icon={selectedIcon} className="title_icon"></IonIcon>
           </h1>
         </div>
 
@@ -127,6 +140,17 @@ const CheckPlanPage: React.FC = () => {
           </IonItem>
         </IonList>
 
+        <div style={{ display: "flex", flexDirection: "row-reverse", marginRight:'10px' }}>
+          <IonButton
+            fill="outline"
+            onClick={() => {
+              history.push("/prices");
+            }}
+          >
+            Check prices
+          </IonButton>
+        </div>
+
         <Timeline
           sx={{
             [`& .${timelineOppositeContentClasses.root}`]: {
@@ -141,9 +165,11 @@ const CheckPlanPage: React.FC = () => {
           ) : (
             filteredEvents.map((event, index) => {
               // Calculate the start time for each event
-              const eventDurationInMinutes = convertDurationToMinutes(event.duration);
+              const eventDurationInMinutes = convertDurationToMinutes(
+                event.duration
+              );
               const startTime = formatTime(accumulatedMinutes);
-              
+
               // Update the accumulated time for the next event
               accumulatedMinutes += eventDurationInMinutes;
 
@@ -154,7 +180,9 @@ const CheckPlanPage: React.FC = () => {
                   </TimelineOppositeContent>
                   <TimelineSeparator>
                     <TimelineDot variant="outlined" />
-                    {index !== filteredEvents.length - 1 && <TimelineConnector />}
+                    {index !== filteredEvents.length - 1 && (
+                      <TimelineConnector />
+                    )}
                   </TimelineSeparator>
                   <TimelineContent>
                     <div className="timeline_content">

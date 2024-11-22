@@ -48,7 +48,7 @@ const Filters: React.FC<FiltersProps> = ({ open, onClose }) => {
         </div>
         <h2 id="parent-modal-title">Choose your filters</h2>
 
-        <p>Price range (€)</p>
+        <p>Price range per activity (€)</p>
         <IonRange
           aria-label="Dual Knobs Range"
           dualKnobs={true}

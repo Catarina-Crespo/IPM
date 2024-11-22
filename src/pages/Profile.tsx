@@ -1,9 +1,14 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonAvatar, IonItem, IonLabel, IonList, IonButton, IonIcon } from '@ionic/react';
 import { mailOutline, locationOutline } from 'ionicons/icons'; // Import icons
 import '../styles/Profile.css';
+import { useHistory } from 'react-router-dom';
 
 const Profile: React.FC = () => {
+
+  const history = useHistory(); // useHistory hook for navigation
+
   const handleLogout = () => {
+    history.push("/login");
     console.log("User logged out");
   };
 
@@ -23,7 +28,7 @@ const Profile: React.FC = () => {
         
         <div className="profile-header">
           <IonAvatar className="profile-avatar">
-            <img src="src/img/Profile-PNG-File.png" alt="Profile" />
+            <img src="src/img/profile.png" alt="Profile" />
           </IonAvatar>
           <h2>Username</h2>
           <p>Bio or description goes here...</p>

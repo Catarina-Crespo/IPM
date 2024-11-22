@@ -1,12 +1,7 @@
 import {
   IonImg,
   IonContent,
-  IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
-  IonItem,
-  IonLabel,
   IonInput,
   IonButton,
   IonText,
@@ -23,11 +18,12 @@ const Login: React.FC = () => {
 
   const handleRegister = () => {
     history.push("/homepage");
+    
   };
 
   const handleLogin = () => {
     // If login is successful, redirect to /discover
-    history.push("/homepage");
+    //history.push("/homepage");
 
     setError("");
     if (!email || !password) {
@@ -36,7 +32,7 @@ const Login: React.FC = () => {
     }
     console.log("Logging in with", { email, password });
     // Navigate to Tab1 after successful login
-    history.push("/tab1");
+    history.push("/homepage");
   };
 
   return (

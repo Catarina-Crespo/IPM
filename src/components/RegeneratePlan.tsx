@@ -15,6 +15,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { close } from "ionicons/icons";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 const style = {
   position: "absolute",
@@ -35,9 +36,25 @@ interface RegeneratePlanProps {
 }
 
 const RegeneratePlan: React.FC<RegeneratePlanProps> = ({ open, onClose }) => {
-  const [value, setValue] = React.useState<Dayjs | null>(
-    dayjs("2022-04-17T15:30")
-  );
+  // State for date input, radio selection, and weather checkbox
+  const [dateValue, setDateValue] = React.useState<Dayjs | null>(dayjs("2024-11-22"));
+  const [radioValue, setRadioValue] = React.useState<string>("now");
+  const [isWeatherChecked, setIsWeatherChecked] =
+    React.useState<boolean>(false);
+
+  // Handle date change for DateTimePicker
+  const handleDateChange = (newValue: Dayjs | null) => {
+    setDateValue(newValue); // Update the date value
+  };
+
+  // Handle radio button change
+  const handleRadioChange = (event: CustomEvent) => {
+    setRadioValue(event.detail.value);
+  };
+
+  const handleCheckboxChange = (event: CustomEvent) => {
+    setIsWeatherChecked(event.detail.checked); // Get the "checked" value from event.detail
+  };
 
   return (
     <Modal
@@ -48,7 +65,7 @@ const RegeneratePlan: React.FC<RegeneratePlanProps> = ({ open, onClose }) => {
     >
       <Box sx={style}>
         <div style={{ display: "flex", flexDirection: "row-reverse" }}>
-          <button style={{background:'none'}} onClick={onClose}>
+          <button style={{ background: "none" }} onClick={onClose}>
             <IonIcon icon={close} size="large"></IonIcon>
           </button>
         </div>
@@ -56,36 +73,59 @@ const RegeneratePlan: React.FC<RegeneratePlanProps> = ({ open, onClose }) => {
           Regenerate from:
         </Typography>
 
-        <div style={{ margin: "20px 0", marginBottom: "40px" }}>
-          <IonRadioGroup value="now">
+        <div
+          style={{
+            margin: "20px 0",
+            marginBottom: "40px",
+            color: "var(--ion-color-primary)",
+          }}
+        >
+          <IonRadioGroup value={radioValue} onIonChange={handleRadioChange}>
             <IonRadio value="now" labelPlacement="end">
               Now
             </IonRadio>
             <br />
-            <IonRadio value="from" labelPlacement="end">
-              <LocalizationProvider
-                dateAdapter={AdapterDayjs}
-                adapterLocale="en-gb"
-              >
-                <DemoContainer components={["TimePicker"]}>
-                  <TimePicker
-                    value={value}
-                    onChange={(newValue) => setValue(newValue)}
-                    format="hh:mm"
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </IonRadio>
 
+            <div style={{display:'flex', alignContent:'center'}}>
+              <IonRadio value="from" labelPlacement="end"></IonRadio>
+              {/* Date input */}
+              
+              <span style={{marginLeft:'10px'}}></span>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["DateTimePicker"]}>
+                <DateTimePicker
+                  label="Specify the time"
+                  openTo="day"
+                  value={dateValue}
+                  onChange={handleDateChange}
+                />
+              </DemoContainer>
+            </LocalizationProvider>
+            </div>
             <br />
           </IonRadioGroup>
         </div>
 
-        <IonCheckbox labelPlacement="end">Consider weather</IonCheckbox>
+        <IonCheckbox
+          labelPlacement="end"
+          checked={isWeatherChecked}
+          onIonChange={handleCheckboxChange} // Corrected event handler
+        >
+          Consider weather
+        </IonCheckbox>
 
-        <div style={{display:'flex', flexDirection:'row', justifyContent:'center', marginTop:'30px'}}>
-          <IonButton fill="outline" style={{margin:'0 10px'}}>Save</IonButton>
-          <IonButton style={{margin:'0 10px'}}>Regenerate</IonButton>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            marginTop: "30px",
+          }}
+        >
+          <IonButton fill="outline" style={{ margin: "0 10px" }}>
+            Save
+          </IonButton>
+          <IonButton style={{ margin: "0 10px" }}>Regenerate</IonButton>
         </div>
       </Box>
     </Modal>
