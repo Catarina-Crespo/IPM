@@ -1,7 +1,27 @@
-import { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonButton, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/react';
-import { restaurant, bus, map, cart } from 'ionicons/icons';
-import '../styles/Prices.css';
+import { useState } from "react";
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonList,
+  IonItem,
+  IonLabel,
+  IonButton,
+  IonIcon,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonBackButton,
+  IonButtons,
+} from "@ionic/react";
+import { restaurant, bus, map, cart } from "ionicons/icons";
+import "../styles/Prices.css";
 
 const Prices: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -14,6 +34,9 @@ const Prices: React.FC = () => {
     <IonPage>
       <IonHeader class="ion-no-border">
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/checkplan" />
+          </IonButtons>
           <IonTitle>Prices</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -23,21 +46,32 @@ const Prices: React.FC = () => {
             <IonTitle size="large">Prices</IonTitle>
           </IonToolbar>
         </IonHeader>
-        
+
         {!selectedCategory ? (
           <IonGrid>
             <IonRow>
               <IonCol size="6">
-                <IonCard button onClick={() => handleCategoryChange('Food')}>
-                  <img src="src/img/restaurant.jpg" alt="Food" className="hover-image" />
+                <IonCard button onClick={() => handleCategoryChange("Food")}>
+                  <img
+                    src="src/img/restaurant.jpg"
+                    alt="Food"
+                    className="hover-image"
+                  />
                   <IonCardHeader>
                     <IonCardTitle>Food</IonCardTitle>
                   </IonCardHeader>
                 </IonCard>
               </IonCol>
               <IonCol size="6">
-                <IonCard button onClick={() => handleCategoryChange('Transport')}>
-                  <img src="src/img/train.jpeg" alt="Transport" className="hover-image" />
+                <IonCard
+                  button
+                  onClick={() => handleCategoryChange("Transport")}
+                >
+                  <img
+                    src="src/img/train.jpeg"
+                    alt="Transport"
+                    className="hover-image"
+                  />
                   <IonCardHeader>
                     <IonCardTitle>Transport</IonCardTitle>
                   </IonCardHeader>
@@ -46,16 +80,30 @@ const Prices: React.FC = () => {
             </IonRow>
             <IonRow>
               <IonCol size="6">
-                <IonCard button onClick={() => handleCategoryChange('Attractions')}>
-                  <img src="src/img/museum.jpg" alt="Attractions" className="hover-image" />
+                <IonCard
+                  button
+                  onClick={() => handleCategoryChange("Attractions")}
+                >
+                  <img
+                    src="src/img/museum.jpg"
+                    alt="Attractions"
+                    className="hover-image"
+                  />
                   <IonCardHeader>
                     <IonCardTitle>Attractions</IonCardTitle>
                   </IonCardHeader>
                 </IonCard>
               </IonCol>
               <IonCol size="6">
-                <IonCard button onClick={() => handleCategoryChange('Supermarket')}>
-                  <img src="src/img/supermarket.jpg" alt="Supermarket" className="hover-image" />
+                <IonCard
+                  button
+                  onClick={() => handleCategoryChange("Supermarket")}
+                >
+                  <img
+                    src="src/img/supermarket.jpg"
+                    alt="Supermarket"
+                    className="hover-image"
+                  />
                   <IonCardHeader>
                     <IonCardTitle>Supermarket</IonCardTitle>
                   </IonCardHeader>
@@ -67,9 +115,11 @@ const Prices: React.FC = () => {
           <>
             <IonList className="prices-list">
               <IonItem>
-                <IonLabel className="category-title">{selectedCategory} Prices</IonLabel>
+                <IonLabel className="category-title">
+                  {selectedCategory} Prices
+                </IonLabel>
               </IonItem>
-              {selectedCategory === 'Food' && (
+              {selectedCategory === "Food" && (
                 <ul className="price-list">
                   <li>
                     <IonItem className="price-item">
@@ -83,7 +133,7 @@ const Prices: React.FC = () => {
                   </li>
                 </ul>
               )}
-              {selectedCategory === 'Transport' && (
+              {selectedCategory === "Transport" && (
                 <ul className="price-list">
                   <li>
                     <IonItem className="price-item">
@@ -97,11 +147,13 @@ const Prices: React.FC = () => {
                   </li>
                 </ul>
               )}
-              {selectedCategory === 'Attractions' && (
+              {selectedCategory === "Attractions" && (
                 <ul className="price-list">
                   <li>
                     <IonItem className="price-item">
-                      <IonLabel className="attraction-title">Colosseum</IonLabel>
+                      <IonLabel className="attraction-title">
+                        Colosseum
+                      </IonLabel>
                     </IonItem>
                     <ul>
                       <li>
@@ -135,7 +187,7 @@ const Prices: React.FC = () => {
                   </li>
                 </ul>
               )}
-              {selectedCategory === 'Supermarket' && (
+              {selectedCategory === "Supermarket" && (
                 <ul className="price-list">
                   <li>
                     <IonItem className="price-item">
@@ -150,12 +202,15 @@ const Prices: React.FC = () => {
                 </ul>
               )}
             </IonList>
-            <IonButton expand="block" color="primary" onClick={() => setSelectedCategory(null)}>
+            <IonButton
+              expand="block"
+              color="primary"
+              onClick={() => setSelectedCategory(null)}
+            >
               Back to Selection
             </IonButton>
           </>
         )}
-        
       </IonContent>
     </IonPage>
   );

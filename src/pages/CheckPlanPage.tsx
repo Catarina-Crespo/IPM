@@ -192,7 +192,7 @@ const CheckPlanPage: React.FC = () => {
                           <IonIcon icon={locationSharp} /> {event.location}
                         </span>
                       </div>
-                      <a>
+                      <a href="https://maps.app.goo.gl/LsLByp3Q8bzEjjZT9">
                         <Icon icon="ic:baseline-directions" />
                       </a>
                     </div>
