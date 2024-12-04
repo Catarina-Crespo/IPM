@@ -41,7 +41,7 @@ const CountryCitySelect: React.FC = () => {
   return (
     <div>
       {/* ----------------- Country select ----------------- */}
-      <div className="select_container">
+      <div className="select_container" style={{zIndex:'4'}}>
         {selectedCountry && (
           <label className="select_label">Destination Country</label>
         )}
@@ -55,7 +55,7 @@ const CountryCitySelect: React.FC = () => {
       </div>
 
       {/* ----------------- City select ----------------- */}
-      <div className="select_container">
+      <div className="select_container" style={{zIndex:'3'}}>
         {selectedCity && (
           <label className="select_label">Destination City</label>
         )}
