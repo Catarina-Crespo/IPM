@@ -160,15 +160,10 @@ const CreatePlan: React.FC = () => {
         {[
           'Day',
           'Night',
-          'Both',
         ].map((label, index) => (
           <IonItem key={index} lines="none">
-            <IonCheckbox  checked={SelectedOptionSchedule === label} 
-                onIonChange={() => handleCheckboxChangeSchedule(label)} 
+            <IonCheckbox 
               slot="start"
-              style={{
-                '--border-radius': '100%',
-              }}
             />
             <IonLabel>{label}</IonLabel>
           </IonItem>
@@ -184,9 +179,6 @@ const CreatePlan: React.FC = () => {
           <IonItem key={index} lines="none">
             <IonCheckbox 
               slot="start"
-              style={{
-                '--border-radius': '100%',
-              }}
             />
             <IonLabel>{label}</IonLabel>
           </IonItem>

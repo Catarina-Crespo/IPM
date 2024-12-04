@@ -52,7 +52,7 @@ const Discovery = () => {
     const fetchEventData = async () => {
       try {
         const API_URL = 'https://api.predicthq.com/v1/events'; // Replace with your actual API URL
-        const API_KEY = 'NW25G_qFyjsUXORO2G7EdokTupW_Eg9yF-I7aBHE'; // Replace with your actual API key
+        const API_KEY = 'naLvxF-feqxuWVzp0FdxuKgUc5xJsjcv_DMhgVUu'; // Replace with your actual API key
         // Get the current date and time in ISO format
         const currentDate = new Date().toISOString().slice(0, 10)
 

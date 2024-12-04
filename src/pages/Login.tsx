@@ -59,6 +59,7 @@ const Login: React.FC = () => {
               clearInput={true}
               value={email}
               className="mod_input"
+              type="email"
               onIonChange={(e) => setEmail(e.detail.value!)}
               required
             ></IonInput>
