@@ -25,10 +25,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { useHistory } from "react-router-dom";
-
+import dayjs, { Dayjs } from "dayjs";
 
 const CreateTripPage: React.FC = () => {
-
   const history = useHistory(); // useHistory hook for navigation
 
   // State for each input field value
@@ -39,6 +38,7 @@ const CreateTripPage: React.FC = () => {
   const [dailyBudget, setDailyBudget] = useState<number>(0);
   const [totalBudget, setTotalBudget] = useState<number>(0);
   const [selectedBudgetOption, setBudgetSelect] = useState<any | null>(null);
+  const [startDate, setStartDate] = useState<Dayjs | null>(null);
 
   const budgetOptions = [
     { value: "daily", label: "Daily" },
@@ -75,7 +75,12 @@ const CreateTripPage: React.FC = () => {
               justifyContent: "end",
             }}
           >
-            <IonButton fill="clear" size="default" color="danger" onClick={() => history.push("/homepage")}>
+            <IonButton
+              fill="clear"
+              size="default"
+              color="danger"
+              onClick={() => history.push("/homepage")}
+            >
               <IonIcon slot="start" icon={closeOutline}></IonIcon>Discard Trip
             </IonButton>
           </div>
@@ -104,30 +109,37 @@ const CreateTripPage: React.FC = () => {
 
           <CountryCitySelect />
 
-          <div style={{ marginBottom: "10px" }}>
+          <div>
+            {/* Trip Start Date */}
+            <div style={{ marginBottom: "10px" }}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer components={["DateTimePicker"]}>
+                  <DateTimePicker
+                    label="Trip Start Date"
+                    views={["year", "month", "day"]}
+                    format="DD/MM/YYYY"
+                    openTo="day"
+                    minDate={dayjs().startOf("day")} // minimum date for trip start date is today
+                    value={startDate}
+                    onChange={(newValue) => setStartDate(newValue)} // store the selected start date
+                  />
+                </DemoContainer>
+              </LocalizationProvider>
+            </div>
+
+            {/* Trip End Date */}
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DateTimePicker"]}>
                 <DateTimePicker
-                  label="Trip Start Date"
-                  views={["day", "month", "year"]}
+                  label="Trip End Date"
+                  views={["year", "month", "day"]}
                   format="DD/MM/YYYY"
                   openTo="day"
+                  minDate={startDate ? startDate : dayjs().startOf("day")} // use trip start date or today's date as minimum
                 />
               </DemoContainer>
             </LocalizationProvider>
           </div>
-
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={["DateTimePicker"]}>
-              <DateTimePicker
-                label="Trip End Date"
-                views={["day", "month", "year"]}
-                  format="DD/MM/YYYY"
-                  openTo="day"
-              />
-            </DemoContainer>
-          </LocalizationProvider>
-
           {/* ----------------- Budget Information Section ----------------- */}
           <h2 className="section_title" style={{ marginTop: "50px" }}>
             <IonIcon
@@ -234,7 +246,12 @@ const CreateTripPage: React.FC = () => {
               marginBottom: "15px",
             }}
           >
-            <IonButton fill="outline" onClick={() => {history.push("/findaccomodation")}}>
+            <IonButton
+              fill="outline"
+              onClick={() => {
+                history.push("/findaccomodation");
+              }}
+            >
               <IonIcon slot="start" icon={search}></IonIcon>
               Search Accomodation
             </IonButton>
@@ -259,7 +276,12 @@ const CreateTripPage: React.FC = () => {
               marginTop: "50px",
             }}
           >
-            <IonButton style={{ marginTop: "20px" }} onClick={() => {history.push("/createplan")}}>
+            <IonButton
+              style={{ marginTop: "20px" }}
+              onClick={() => {
+                history.push("/createplan");
+              }}
+            >
               Next
               <IonIcon slot="end" icon={chevronForward}></IonIcon>
             </IonButton>

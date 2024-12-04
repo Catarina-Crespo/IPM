@@ -16,6 +16,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { close } from "ionicons/icons";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker";
 
 const style = {
   position: "absolute",
@@ -70,7 +71,7 @@ const RegeneratePlan: React.FC<RegeneratePlanProps> = ({ open, onClose }) => {
           </button>
         </div>
         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          Regenerate from:
+          Regenerate:
         </Typography>
 
         <div
@@ -82,28 +83,34 @@ const RegeneratePlan: React.FC<RegeneratePlanProps> = ({ open, onClose }) => {
         >
           <IonRadioGroup value={radioValue} onIonChange={handleRadioChange}>
             <IonRadio value="now" labelPlacement="end">
-              Now
+              from Now
             </IonRadio>
             <br />
 
             <div style={{display:'flex', alignContent:'center'}}>
-              <IonRadio value="from" labelPlacement="end"></IonRadio>
+              <IonRadio value="from" labelPlacement="end">from:</IonRadio>
               {/* Date input */}
               
               <span style={{marginLeft:'10px'}}></span>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["DateTimePicker"]}>
-                <DateTimePicker
-                  label="Specify the time"
-                  openTo="day"
-                  value={dateValue}
-                  onChange={handleDateChange}
-                />
-              </DemoContainer>
-            </LocalizationProvider>
+              
+
             </div>
             <br />
           </IonRadioGroup>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["DateTimePicker"]}>
+                <MobileDateTimePicker
+                  label="Specify the time"
+                  openTo="day"
+                  value={dateValue}
+                  format="DD-MM-YYYY hh:mm"
+                  onChange={(newValue) => {
+                    console.log('Date changed:', newValue);  // Debugging
+                    handleDateChange(newValue);
+                  }}
+                />
+              </DemoContainer>
+            </LocalizationProvider>
         </div>
 
         <IonCheckbox
