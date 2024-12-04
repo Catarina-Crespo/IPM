@@ -79,7 +79,7 @@ const CreatePlan: React.FC = () => {
     setSelectedOptionVisitor(SelectedOptionVisitor === label ? null : label);
   };
   const handleCheckboxChangeSchedule = (label: string) => {
-    setSelectedOptionVisitor(SelectedOptionSchedule === label ? null : label);
+    setSelectedOptionScheduler(SelectedOptionSchedule === label ? null : label);
   };
   
   return (
@@ -163,8 +163,8 @@ const CreatePlan: React.FC = () => {
           'Both',
         ].map((label, index) => (
           <IonItem key={index} lines="none">
-            <IonCheckbox  checked={SelectedOptionVisitor === label} 
-                onIonChange={() => handleCheckboxChangeVisitor(label)} 
+            <IonCheckbox  checked={SelectedOptionSchedule === label} 
+                onIonChange={() => handleCheckboxChangeSchedule(label)} 
               slot="start"
               style={{
                 '--border-radius': '100%',
