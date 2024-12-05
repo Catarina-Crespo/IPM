@@ -83,7 +83,7 @@ const Filters: React.FC<FiltersProps> = ({ open, onClose }) => {
             marginTop: "30px",
           }}
         >
-          <IonButton style={{ margin: "0 10px" }}>Apply</IonButton>
+          <IonButton style={{ margin: "0 10px" }} onClick={onClose}>Apply</IonButton>
         </div>
       </Box>
     </Modal>
