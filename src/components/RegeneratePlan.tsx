@@ -83,7 +83,7 @@ const RegeneratePlan: React.FC<RegeneratePlanProps> = ({ open, onClose }) => {
         >
           <IonRadioGroup value={radioValue} onIonChange={handleRadioChange}>
             <IonRadio value="now" labelPlacement="end">
-              from Now
+              from now
             </IonRadio>
             <br />
 
@@ -129,10 +129,10 @@ const RegeneratePlan: React.FC<RegeneratePlanProps> = ({ open, onClose }) => {
             marginTop: "30px",
           }}
         >
-          <IonButton fill="outline" style={{ margin: "0 10px" }}>
+          <IonButton fill="outline" style={{ margin: "0 10px" }} onClick={onClose}>
             Save
           </IonButton>
-          <IonButton style={{ margin: "0 10px" }}>Regenerate</IonButton>
+          <IonButton style={{ margin: "0 10px" }} onClick={() => {alert("Not implemented")}}>Regenerate</IonButton>
         </div>
       </Box>
     </Modal>

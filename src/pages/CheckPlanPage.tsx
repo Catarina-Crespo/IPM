@@ -5,16 +5,19 @@ import {
   IonFabButton,
   IonHeader,
   IonIcon,
-  IonItem,
-  IonList,
   IonPage,
-  IonSelect,
-  IonSelectOption,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
 import "../styles/CheckPlan.css";
-import { close, locationSharp, settings, sunny, cloud, rainy } from "ionicons/icons"; // Added cloud icon
+import {
+  close,
+  locationSharp,
+  settings,
+  sunny,
+  cloud,
+  rainy,
+} from "ionicons/icons"; // Added cloud icon
 import * as React from "react";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -26,6 +29,10 @@ import TimelineOppositeContent, {
   timelineOppositeContentClasses,
 } from "@mui/lab/TimelineOppositeContent";
 import { Icon } from "@iconify/react";
+
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 
 import sunnyImg from "../img/sunny.jpg"; // Image for sunny weather
 import cloudyImg from "../img/cloudy.jpg"; // Image for cloudy weather (updated to correct path)
@@ -62,31 +69,36 @@ const formatTime = (minutes: number) => {
 const CheckPlanPage: React.FC = () => {
   const history = useHistory(); // useHistory hook for navigation
 
-  const [selectedDate, setSelectedDate] = React.useState<string>("");
+  //const [selectedDate, setSelectedDate] = React.useState<string>("");
   const [filteredEvents, setFilteredEvents] = React.useState<any[]>([]);
   const [selectedIcon, setSelectedIcon] = React.useState<string>("");
   const [selectedImg, setSelectedImg] = React.useState<any>(sunnyImg); // Set default to sunny image
 
-  // Handle date change
-  const handleDateChange = (e: any) => {
-    const date = e.detail.value;
-    setSelectedDate(date);
+  const [selectedDate, setSelectedDate] = React.useState(0);
 
-    // Conditionally set the image and icon based on selected date
-    if (date === "7 Sept" || date === "8 Sept" || date === "9 Sept" || date === "11 Sept") {
-      setSelectedImg(sunnyImg); // Set sunny image
-      setSelectedIcon(sunny); // Set sunny icon
-    } else if (date === "10 Sept") {
-      setSelectedImg(rainyImg); // Set cloudy image
-      setSelectedIcon(rainy); // Set cloudy icon
-    } else {
-      setSelectedImg(cloudyImg); // Set cloudy image
-      setSelectedIcon(cloud); // Set cloudy icon
-    }
+  // Handle tab change and filter events
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setSelectedDate(newValue);
+
+    // Set image and icon based on the selected date
+    const dateMap: Record<number, { img: any; icon: any }> = {
+      0: { img: sunnyImg, icon: sunny },
+      1: { img: sunnyImg, icon: sunny },
+      2: { img: sunnyImg, icon: sunny },
+      3: { img: rainyImg, icon: rainy },
+      4: { img: cloudyImg, icon: cloud },
+      5: { img: cloudyImg, icon: cloud },
+      6: { img: cloudyImg, icon: cloud },
+    };
+    
+    setSelectedImg(dateMap[newValue]?.img || sunnyImg); // Default to sunny
+    setSelectedIcon(dateMap[newValue]?.icon || sunny); // Default to sunny icon
 
     // Filter events based on the selected date
+    const dateLabels = ["7 Sept", "8 Sept", "9 Sept", "10 Sept", "11 Sept", "12 Sept", "13 Sept"];
+    const selectedLabel = dateLabels[newValue];
     const eventsForSelectedDate = eventsData.filter(
-      (event) => event.date === date
+      (event) => event.date === selectedLabel
     );
     setFilteredEvents(eventsForSelectedDate);
   };
@@ -121,26 +133,36 @@ const CheckPlanPage: React.FC = () => {
           </h1>
         </div>
 
-        <IonList>
-          <IonItem>
-            <IonSelect
-              aria-label="Day"
-              interface="popover"
-              placeholder="Select a date"
-              onIonChange={handleDateChange}
-            >
-              <IonSelectOption value="7 Sept">7 Sept</IonSelectOption>
-              <IonSelectOption value="8 Sept">8 Sept</IonSelectOption>
-              <IonSelectOption value="9 Sept">9 Sept</IonSelectOption>
-              <IonSelectOption value="10 Sept">10 Sept</IonSelectOption>
-              <IonSelectOption value="11 Sept">11 Sept</IonSelectOption>
-              <IonSelectOption value="12 Sept">12 Sept</IonSelectOption>
-              <IonSelectOption value="13 Sept">13 Sept</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-        </IonList>
+        
 
-        <div style={{ display: "flex", flexDirection: "row-reverse", marginRight:'10px' }}>
+        <Box
+          sx={{ width:"100%"}}
+        >
+          <Tabs
+            value={selectedDate}
+            onChange={handleChange}
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="scrollable auto tabs example"
+          >
+            <Tab label="7 Sept" />
+            <Tab label="8 Sept" />
+            <Tab label="9 Sept" />
+            <Tab label="10 Sept" />
+            <Tab label="11 Sept" />
+            <Tab label="12 Sept" />
+            <Tab label="13 Sept" />
+          </Tabs>
+        </Box>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row-reverse",
+            marginRight: "10px",
+            marginTop: "20px"
+          }}
+        >
           <IonButton
             fill="outline"
             onClick={() => {
