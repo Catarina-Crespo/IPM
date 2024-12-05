@@ -1,27 +1,25 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  height: 100%; /* Full height of the parent container */
-  padding: 16px; /* Optional: add padding for spacing */
+  justify-content: center; 
+  align-items: center; 
+  height: 100%;
+  padding: 16px; 
 }
 
 .login-logo {
-  width: 40vw; /* 40% of the viewport width */
-  max-width: 150px; /* Maximum width to prevent it from getting too large */
-  height: auto; /* Maintain aspect ratio */
+  width: 40vw;
+  max-width: 150px; 
+  height: auto; 
   margin-bottom: 20px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  /*align-items: center;*/
   width: 100%;
 }
 
 .ion-padding {
   padding: 20px;
 }
-  

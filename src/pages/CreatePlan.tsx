@@ -73,7 +73,7 @@ const CreatePlan: React.FC = () => {
 
   const [interests, setInterests] = useState<string[]>([]);
   const [showAlert, setShowAlert] = useState(false);
-
+  const [searchText, setSearchText] = useState('');
 
   const handleCheckboxChangeVisitor = (label: string) => {
     setSelectedOptionVisitor(SelectedOptionVisitor === label ? null : label);
@@ -82,6 +82,10 @@ const CreatePlan: React.FC = () => {
     setSelectedOptionScheduler(SelectedOptionSchedule === label ? null : label);
   };
   
+  const filteredPlans = recommendations_plans.filter((plan) =>
+    plan.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   return (
     <IonPage>
       <IonHeader class="ion-no-border">
@@ -190,100 +194,43 @@ const CreatePlan: React.FC = () => {
 
       <Filters open={open} onClose={handleClose} />
 
-
       <IonToolbar>
-          <div style={{ display: 'flex',  padding:"20px 10px"}}>
-          <IonSearchbar animated={true} placeholder="Search Attraction.."></IonSearchbar>
-          <IonButton size="small" onClick={handleOpen}>
-            <IonIcon 
-              icon={filterCircleOutline}
-              style={{ fontSize: '30px' }}
-            />
-          </IonButton>
+          <div style={{ display: 'flex', padding: '20px 10px' }}>
+            <IonSearchbar
+              animated={true}
+              placeholder="Search Attraction..."
+              value={searchText}
+              onIonChange={(e) => setSearchText(e.detail.value!)}
+            ></IonSearchbar>
+            <IonButton size="small" onClick={handleOpen}>
+              <IonIcon icon={filterCircleOutline} style={{ fontSize: '30px' }} />
+            </IonButton>
           </div>
         </IonToolbar>
 
 
-
-    {/*} IF WE WANT IB LIST
-        <IonList className="interests-list">
-          <fieldset>
-          <legend className="question-text">What are you interested in?</legend>
-            {[
-              'Sports',
-              'Museums',
-              'Food',
-              'Monuments',
-              'Nightlife',
-              'Tours',
-            ].map((interest) => (
-              <IonItem key={interest}  lines="none">
-                <IonLabel>{interest}</IonLabel>
-                <IonCheckbox
-                  slot="start"
-                />
-              </IonItem>
-            ))}
-          </fieldset>
-        </IonList>   */}
-
 <IonGrid>
-  <IonRow className="scrollable-row">
-    {recommendations_plans
-      .filter((plan) => plan.id % 2 !== 0) // Filter for odd IDs
-      .map((plan) => (
-        <IonCol size="7" key={`odd-col-${plan.id}`}>
-          <IonCard
-            className="horizontal-card"
-            button={true}
-            key={`odd-${plan.id}`}
-          >
-            <img
-              alt={plan.name}
-              src={plan.image}
-              style={{ width: '100%', height: '120px', objectFit: 'cover' }}
-            />
-            <IonCardHeader>
-                <IonCardTitle>{plan.name}
-                 <IonCheckbox 
-                style={{ marginTop:"5px"}} alignment="start">  </IonCheckbox>              
-                </IonCardTitle>
-            </IonCardHeader>
-          </IonCard>
-        </IonCol>
-      ))}
-  </IonRow>
-
-  {/* Second Row: Cards with Even IDs */}
-  <IonRow className="scrollable-row">
-    {recommendations_plans
-      .filter((plan) => plan.id % 2 === 0) // Filter for even IDs
-      .map((plan) => (
-        <IonCol size="7" key={`even-col-${plan.id}`}>
-          <IonCard
-            className="horizontal-card"
-            button={true}
-            key={`even-${plan.id}`}
-          >
-            <img
-              alt={plan.name}
-              src={plan.image}
-              style={{ width: '100%', height: '120px', objectFit: 'cover' }}
-            />
-            <IonCardHeader>
-               <IonCardTitle>{plan.name}
-                 <IonCheckbox 
-                  style={{ marginTop:"5px"}} alignment="start">  </IonCheckbox>              
-               </IonCardTitle>
-            </IonCardHeader>
-          </IonCard>
-        </IonCol>
-      ))}
-  </IonRow>
-</IonGrid>
-
-
-
+          {/* Display filtered plans */}
+          <IonRow className='scrollable-row'>
+            {filteredPlans.map((plan) => (
+              <IonCol size="7" key={plan.id}>
+                <IonCard className="horizontal-card"
+                  button={true}>
+                  <img
+                    alt={plan.name}
+                    src={plan.image}
+                    style={{ width: '100%', height: '120px', objectFit: 'cover' }}
+                  />
+                  <IonCardHeader>
+                    <IonCardTitle>{plan.name}</IonCardTitle>
+                    <IonCheckbox 
+                style={{ marginTop:"5px"}} alignment="start">  </IonCheckbox>    
+                  </IonCardHeader>
+                </IonCard>
+              </IonCol>
+            ))}
+          </IonRow>
+        </IonGrid>
 
         <IonButton
           expand="block"

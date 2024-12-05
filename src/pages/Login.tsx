@@ -22,16 +22,13 @@ const Login: React.FC = () => {
   };
 
   const handleLogin = () => {
-    // If login is successful, redirect to /discover
-    //history.push("/homepage");
-
     setError("");
     if (!email || !password) {
       setError("Please enter both email and password.");
       return;
     }
     console.log("Logging in with", { email, password });
-    // Navigate to Tab1 after successful login
+    // Navigate to Homepage after successful login
     history.push("/homepage");
   };
 
