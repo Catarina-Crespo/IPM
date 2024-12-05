@@ -12,22 +12,22 @@ import {
   IonIcon,
   IonInput,
   IonModal,
-} from '@ionic/react';
-import { mailOutline, locationOutline } from 'ionicons/icons';
-import '../styles/Profile.css';
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+} from "@ionic/react";
+import { mailOutline, locationOutline } from "ionicons/icons";
+import "../styles/Profile.css";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Profile: React.FC = () => {
-  const history = useHistory(); 
+  const history = useHistory();
 
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false); 
-  const [username, setUsername] = useState('Username');
-  const [email, setEmail] = useState('user@example.com');
-  const [location, setLocation] = useState('Rome, Italy'); 
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [username, setUsername] = useState("Username");
+  const [email, setEmail] = useState("user@example.com");
+  const [location, setLocation] = useState("Rome, Italy");
 
   const handleLogout = () => {
-    history.push('/login');
+    history.push("/login");
   };
 
   const handleSave = () => {
@@ -87,38 +87,48 @@ const Profile: React.FC = () => {
           Log Out
         </IonButton>
 
-        <IonModal isOpen={isEditModalOpen} onDidDismiss={() => setIsEditModalOpen(false)}>
-          <IonHeader>
+        <IonModal
+          isOpen={isEditModalOpen}
+          onDidDismiss={() => setIsEditModalOpen(false)}
+        >
+          <IonHeader  class="ion-no-border">
             <IonToolbar>
               <IonTitle>Edit Profile</IonTitle>
-              <IonButton slot="end" fill="clear" onClick={() => setIsEditModalOpen(false)}>
+              <IonButton
+                slot="end"
+                fill="clear"
+                onClick={() => setIsEditModalOpen(false)}
+              >
                 Close
               </IonButton>
             </IonToolbar>
           </IonHeader>
           <IonContent>
-            <div className="edit-profile-form">
-              <IonItem>
-                <IonLabel position="stacked">Username</IonLabel>
-                <IonInput
-                  value={username}
-                  onIonChange={(e) => setUsername(e.detail.value!)}
-                />
-              </IonItem>
-              <IonItem>
-                <IonLabel position="stacked">Email</IonLabel>
-                <IonInput
-                  value={email}
-                  onIonChange={(e) => setEmail(e.detail.value!)}
-                />
-              </IonItem>
-              <IonItem>
-                <IonLabel position="stacked">Location</IonLabel>
-                <IonInput
-                  value={location}
-                  onIonChange={(e) => setLocation(e.detail.value!)}
-                />
-              </IonItem>
+            <div className="edit-profile-form" style={{margin:'20px 10px'}}>
+              <IonInput
+                label="Username"
+                labelPlacement="floating"
+                fill="outline"
+                value={username}
+                onIonChange={(e) => setUsername(e.detail.value!)}
+                className="mod_input"
+              />
+              <IonInput
+                label="Email"
+                labelPlacement="floating"
+                fill="outline"
+                value={email}
+                onIonChange={(e) => setEmail(e.detail.value!)}
+                className="mod_input"
+              />
+              <IonInput
+                label="Location"
+                labelPlacement="floating"
+                fill="outline"
+                value={location}
+                onIonChange={(e) => setLocation(e.detail.value!)}
+                className="mod_input"
+              />
               <IonButton expand="block" color="primary" onClick={handleSave}>
                 Save Changes
               </IonButton>
