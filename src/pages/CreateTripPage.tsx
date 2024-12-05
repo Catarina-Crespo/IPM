@@ -242,7 +242,7 @@ const CreateTripPage: React.FC = () => {
               width: "100%",
               display: "flex",
               flexDirection: "row",
-              justifyContent: "end",
+              justifyContent: "center",
               marginBottom: "15px",
             }}
           >
@@ -257,14 +257,6 @@ const CreateTripPage: React.FC = () => {
             </IonButton>
           </div>
 
-          <IonInput
-            label="Location where you are staying"
-            labelPlacement="floating"
-            fill="outline"
-            type="text"
-            className="mod_input"
-          ></IonInput>
-
           {/* -------- Next button -------- */}
           <div
             style={{
@@ -273,7 +265,7 @@ const CreateTripPage: React.FC = () => {
               flexDirection: "row",
               justifyContent: "end",
               borderTop: "solid 1px var(--ion-color-dark)",
-              marginTop: "50px",
+              marginTop: "30px",
             }}
           >
             <IonButton
