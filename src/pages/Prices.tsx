@@ -23,6 +23,12 @@ import {
 import { restaurant, bus, map, cart } from "ionicons/icons";
 import "../styles/Prices.css";
 
+
+import supermarketImg from "../img/supermarket.jpg"; // Image for sunny weather
+import trainImg from "../img/train.jpeg"; // Image for cloudy weather (updated to correct path)
+import restaurantImg from "../img/restaurant.jpg";
+import museumImg from "../img/museum.jpg";
+
 const Prices: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -53,7 +59,7 @@ const Prices: React.FC = () => {
               <IonCol size="6">
                 <IonCard button onClick={() => handleCategoryChange("Food")}>
                   <img
-                    src="src/img/restaurant.jpg"
+                    src={restaurantImg}
                     alt="Food"
                     className="hover-image"
                   />
@@ -68,7 +74,7 @@ const Prices: React.FC = () => {
                   onClick={() => handleCategoryChange("Transport")}
                 >
                   <img
-                    src="src/img/train.jpeg"
+                    src={trainImg}
                     alt="Transport"
                     className="hover-image"
                   />
@@ -85,7 +91,7 @@ const Prices: React.FC = () => {
                   onClick={() => handleCategoryChange("Attractions")}
                 >
                   <img
-                    src="src/img/museum.jpg"
+                    src={museumImg}
                     alt="Attractions"
                     className="hover-image"
                   />
@@ -100,7 +106,7 @@ const Prices: React.FC = () => {
                   onClick={() => handleCategoryChange("Supermarket")}
                 >
                   <img
-                    src="src/img/supermarket.jpg"
+                    src={supermarketImg}
                     alt="Supermarket"
                     className="hover-image"
                   />

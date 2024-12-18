@@ -18,6 +18,8 @@ import "../styles/Profile.css";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import profileImg from "../img/profile.png";
+
 const Profile: React.FC = () => {
   const history = useHistory();
 
@@ -50,7 +52,7 @@ const Profile: React.FC = () => {
 
         <div className="profile-header">
           <IonAvatar className="profile-avatar">
-            <img src="src/img/profile.png" alt="Profile" />
+            <img src={profileImg} alt="Profile" />
           </IonAvatar>
           <h2>{username}</h2>
           <p>Bio or description goes here...</p>
